@@ -49,8 +49,6 @@ public class Conclusion extends HttpServlet {
             case "update":
                 try {
                     //BeanUtils.populate(profesor, request.getParameterMap());
-                    codigo.setId(Integer.parseInt(request.getParameter("actualizarID")));
-                    codigo.setTipo(Integer.parseInt(request.getParameter("actualizarTIPO")));
                     profesor.setCodigo(codigo);
                     profesor.setNombre(request.getParameter("nombre"));
                     profesor.setApe1(request.getParameter("ape1"));
