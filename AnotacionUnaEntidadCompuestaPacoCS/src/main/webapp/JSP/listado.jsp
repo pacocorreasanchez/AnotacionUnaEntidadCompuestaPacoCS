@@ -20,10 +20,7 @@
 
             <ul>
                 <c:forEach var="item" items="${listado}">
-
-
-                    <li>${item.nombre} ${item.ape1} ${item.ape2}</li>
-
+                    <li>Código: ${item.codigo.id}-${item.codigo.tipo}. Nombre: ${item.nombre} ${item.ape1} ${item.ape2}. Escala: ${item.escala}. Fecha: ${item.fecha}</li>
                 </c:forEach>
             </ul>
             <br />

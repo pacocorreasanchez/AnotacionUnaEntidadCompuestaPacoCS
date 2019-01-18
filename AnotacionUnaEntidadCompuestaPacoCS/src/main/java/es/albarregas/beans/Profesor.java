@@ -19,10 +19,6 @@ public class Profesor implements Serializable{
     
     @EmbeddedId
     private Codigo codigo;
-    @GeneratedValue(strategy = IDENTITY)
-    
-    @Column(name = "idProf")
-    private int idProf;
 
     @Column(name = "nombre", length = 20, nullable = true)
     private String nombre;
@@ -40,12 +36,12 @@ public class Profesor implements Serializable{
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar fecha;
 
-    public int getIdProf() {
-        return idProf;
+    public Codigo getCodigo() {
+        return codigo;
     }
 
-    public void setIdProf(int idProf) {
-        this.idProf = idProf;
+    public void setCodigo(Codigo codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {

@@ -1,5 +1,6 @@
 package es.albarregas.dao;
 
+import es.albarregas.beans.Codigo;
 import es.albarregas.beans.Profesor;
 import es.albarregas.persistencia.HibernateUtil;
 
@@ -70,13 +71,13 @@ public class ProfesorDAO implements IProfesorDAO {
     }
 
     @Override
-    public Profesor getOne(int pk) {
+    public Profesor getOne(Codigo codigo) {
         Profesor profesor = new Profesor();
         Session sesion = null;
         try {
             sesion = HibernateUtil.getSessionFactory().openSession();
             sesion.beginTransaction();
-            profesor = (Profesor)sesion.get(Profesor.class, pk);
+            profesor = (Profesor)sesion.get(Profesor.class, codigo);
             sesion.getTransaction().commit();
         } catch(org.hibernate.JDBCException jdbce){
             if(sesion != null){

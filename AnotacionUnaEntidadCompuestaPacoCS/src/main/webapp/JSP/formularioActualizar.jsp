@@ -14,30 +14,47 @@
 
         <div id="principal">
             <h2>Actualizaci&oacute;n de datos</h2>
-        <form method="post" action="conclusion?op=update">
-            <table>
-                <tr>
-                    <td>Código</td>
-                    <td><input type="text" name="id" value="${profesor.id}" readonly="readonly" /></td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td><input type="text" name="nombre" value="${profesor.nombre}" /></td>
-                </tr>
-                <tr>
-                    <td>Apellido 1</td>
-                    <td><input type="text" name="ape1" value="${profesor.ape1}" /></td>
-                </tr>
-                <tr>
-                    <td>Apellido 2</td>
-                    <td><input type="text" name="ape2" value="${profesor.ape2}" /></td>
-                </tr>
-                <tr>
-                    
-                    <td colspan="2"><input type="submit" name="enviar" value="Enviar" class="boton" /></td>
-                </tr>
-            </table>
-        </form>
+            <form method="post" action="conclusion?op=update">
+                <table>
+                    <tr>
+                        <td>Código (id y tipo)</td>
+                        <td>id:</td>
+                        <td><input type="text" name="actualizarID" value="${profesor.codigo.id}" readonly="readonly" /></td>
+                        <td>tipo:</td>
+                        <td><input type="text" name="actualizarTIPO" value="${profesor.codigo.tipo}" readonly="readonly" /></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre</td>
+                        <td><input type="text" name="nombre" value="${profesor.nombre}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido 1</td>
+                        <td><input type="text" name="ape1" value="${profesor.ape1}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido 2</td>
+                        <td><input type="text" name="ape2" value="${profesor.ape2}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Escala</td>
+                        <td>
+                            <select name="escala">
+                                <option value="${profesor.escala}" selected>${profesor.escala}</option>
+                                <option value="t">T</option>
+                                <option value="s">S</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fecha</td>
+                        <td><input type="datetime-local" name="fecha" value="${profesor.fecha}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2"><input type="submit" name="enviar" value="Enviar" class="boton" /></td>
+                    </tr>
+                </table>
+            </form>
         </div>
 
 

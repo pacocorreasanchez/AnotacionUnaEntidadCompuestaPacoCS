@@ -14,30 +14,46 @@
 
         <div id="principal">
             <h2>Actualizaci&oacute;n de datos</h2>
-        <form method="post" action="control?op=add">
-            <table>
-                <tr>
-                    <td>Código</td>
-                    <td><input type="text" name="id"  /></td>
-                </tr>
-                <tr>
-                    <td>Nombre</td>
-                    <td><input type="text" name="nombre" /></td>
-                </tr>
-                <tr>
-                    <td>Apellido 1</td>
-                    <td><input type="text" name="ape1"  /></td>
-                </tr>
-                <tr>
-                    <td>Apellido 2</td>
-                    <td><input type="text" name="ape2" /></td>
-                </tr>
-                <tr>
-                    
-                    <td colspan="2"><input type="submit" name="enviar" value="Enviar" class="boton" /></td>
-                </tr>
-            </table>
-        </form>
+            <form method="post" action="control?op=add">
+                <table>
+                    <tr>
+                        <td>Código (id y tipo)</td>
+                        <td>id: </td>
+                        <td><input type="text" name="id"  placleholder="id"/></td>
+                        <td>tipo: </td>
+                        <td><input type="text" name="tipo"  placeholder="tipo"/></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre</td>
+                        <td><input type="text" name="nombre" /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido 1</td>
+                        <td><input type="text" name="ape1"  /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido 2</td>
+                        <td><input type="text" name="ape2" /></td>
+                    </tr>
+                    <tr>
+                        <td>Escala</td>
+                        <td>
+                            <select name="escala">
+                                <option value="esca" disabled selected>Escala</option>
+                                <option value="t">T</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fecha</td>
+                        <td><input type="datetime-local" name="fecha" /></td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2"><input type="submit" name="enviar" value="Enviar" class="boton" /></td>
+                    </tr>
+                </table>
+            </form>
         </div>
 
 
