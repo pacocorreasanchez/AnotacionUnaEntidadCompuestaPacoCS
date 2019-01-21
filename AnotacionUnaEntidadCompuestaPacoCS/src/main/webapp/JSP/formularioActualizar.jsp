@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 
 
 <c:set var="contexto" value="${pageContext.request.contextPath}" />
@@ -18,11 +20,8 @@
             <form method="post" action="conclusion?op=update">
                 <table>
                     <tr>
-                        <td>Código (id y tipo)</td>
-                        <td>id:</td>
-                        <td><input type="text" name="actualizarID" value="${profesor.codigo.id}" readonly="readonly" /></td>
-                        <td>tipo:</td>
-                        <td><input type="text" name="actualizarTIPO" value="${profesor.codigo.tipo}" readonly="readonly" /></td>
+                        <td>Código</td>
+                        <td><input type="text" name="actualizarCodigo" value="${profesor.codigo.id}-${profesor.codigo.tipo}" readonly="readonly" /></td>
                     </tr>
                     <tr>
                         <td>Nombre</td>
@@ -48,7 +47,7 @@
                     </tr>
                     <tr>
                         <td>Fecha</td>
-                        <td><input type="datetime-local" name="fecha" value="${profesor.fecha}"/></td>
+                        <td><input type="datetime-local" name="fecha" value="<fmt:formatDate value="${profesor.fecha.time}" pattern="yyyy-MM-dd" />T<fmt:formatDate value="${profesor.fecha.time}" pattern="HH:mm" />"/></td>
                     </tr>
                     <tr>
 

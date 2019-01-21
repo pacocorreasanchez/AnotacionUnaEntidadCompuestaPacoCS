@@ -21,8 +21,8 @@
                 <table>
                     <c:forEach var="item" items="${listado}">
                         <tr>
-                            <td><input type="radio" name="borrarID" value="${item.codigo.id}" /></td>
-                            <td><input type="radio" name="borrarTIPO" value="${item.codigo.tipo}" /></td>
+                            <td><input type="radio" name="borrarCodigo" value="${item.codigo.id}-${item.codigo.tipo}" /></td>
+   
                             <td>${item.nombre} ${item.ape1} ${item.ape2}</td>
                         </tr>
                     </c:forEach>

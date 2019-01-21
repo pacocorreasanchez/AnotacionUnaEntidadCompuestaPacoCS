@@ -21,8 +21,7 @@
                 <table>
                     <c:forEach var="item" items="${listado}">
                         <tr>
-                            <td><input type="radio" name="registroID" value="${item.codigo.id}" /></td>
-                            <td><input type="hidden" name="registroTIPO" value="${item.codigo.tipo}" /></td>
+                            <td><input type="radio" name="registroCodico" value="${item.codigo.id}-${item.codigo.tipo}" /></td>
                             <td>${item.nombre} ${item.ape1} ${item.ape2}</td>
                         </tr>
                     </c:forEach>

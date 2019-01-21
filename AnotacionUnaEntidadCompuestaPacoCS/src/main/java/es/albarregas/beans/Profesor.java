@@ -10,6 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -20,13 +21,13 @@ public class Profesor implements Serializable{
     @EmbeddedId
     private Codigo codigo;
 
-    @Column(name = "nombre", length = 20, nullable = true)
+    @Column(name = "nombre", length = 20, nullable = false)
     private String nombre;
     
-    @Column(name = "ape1", length = 15, nullable = true)
+    @Column(name = "ape1", length = 15, nullable = false)
     private String ape1;
     
-    @Column(name = "ape2", length = 15, nullable = false)
+    @Column(name = "ape2", length = 15, nullable = true)
     private String ape2;
     
     @Column(name = "escala", columnDefinition="set('s', 't') default 's'", insertable=false, updatable=true)
@@ -35,6 +36,7 @@ public class Profesor implements Serializable{
     @Column(name = "fecha", columnDefinition="datetime default now()", insertable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar fecha;
+    
 
     public Codigo getCodigo() {
         return codigo;

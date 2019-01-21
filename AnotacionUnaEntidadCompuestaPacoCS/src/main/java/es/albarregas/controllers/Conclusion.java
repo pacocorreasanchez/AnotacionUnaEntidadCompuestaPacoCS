@@ -1,6 +1,5 @@
 package es.albarregas.controllers;
 
-
 import es.albarregas.beans.Codigo;
 import es.albarregas.dao.IProfesorDAO;
 import es.albarregas.daofactory.DAOFactory;
@@ -39,18 +38,22 @@ public class Conclusion extends HttpServlet {
             throws ServletException, IOException {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IProfesorDAO pdao = daof.getProfesorDAO();
-        
+
         Codigo codigo = new Codigo();
         Profesor profesor = new Profesor();
         String url = null;
         switch (request.getParameter("op")) {
-            
-            
+
             case "update":
                 try {
                     //BeanUtils.populate(profesor, request.getParameterMap());
-                    codigo.setId(Integer.parseInt(request.getParameter("actualizarID")));
-                    codigo.setTipo(Integer.parseInt(request.getParameter("actualizarTIPO")));
+                    String codigoObtenido = request.getParameter("actualizarCodigo");
+                    String[] parts = codigoObtenido.split("-");
+                    String id = parts[0];
+                    String tipo = parts[1];
+                    codigo.setId(Integer.parseInt(id));
+                    codigo.setTipo(Integer.parseInt(tipo));
+
                     profesor.setCodigo(codigo);
                     profesor.setNombre(request.getParameter("nombre"));
                     profesor.setApe1(request.getParameter("ape1"));
@@ -64,7 +67,7 @@ public class Conclusion extends HttpServlet {
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(date);
                     profesor.setFecha(cal);
-                    
+
                 } catch (ParseException ex) {
                     ex.printStackTrace();
                 }

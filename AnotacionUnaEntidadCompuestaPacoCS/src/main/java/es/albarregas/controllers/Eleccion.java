@@ -50,9 +50,10 @@ public class Eleccion extends HttpServlet {
                 List<Profesor> listaProf = pdao.get();
 
                 request.setAttribute("listado", listaProf);
-                
+       
             
         }
+        
         switch(request.getParameter("op")){
             case "list":
                 url = "JSP/listado.jsp";

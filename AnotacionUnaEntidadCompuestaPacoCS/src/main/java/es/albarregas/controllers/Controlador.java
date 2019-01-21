@@ -54,7 +54,7 @@ public class Controlador extends HttpServlet {
                     profesor.setApe2(request.getParameter("ape2"));
                     profesor.setEscala(request.getParameter("escala"));
 
-                    //Se pasa a Date la fecha recibida y después se pasa a Calendar con el método setTime()
+                    //Se pasa a Date la fecha recibida y después se pasa a Calendar con el método setTime()                    
                     String s = request.getParameter("fecha");
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
                     Date date = sdf.parse(s);
@@ -70,15 +70,23 @@ public class Controlador extends HttpServlet {
                 url = "index.html";
                 break;
             case "delete":
-                codigo.setId(Integer.parseInt(request.getParameter("borrarID")));
-                codigo.setTipo(Integer.parseInt(request.getParameter("borrarTIPO")));
+                String codigoObtenido = request.getParameter("borrarCodigo");
+                String[] parts = codigoObtenido.split("-");
+                String id = parts[0];
+                String tipo = parts[1];
+                codigo.setId(Integer.parseInt(id));
+                codigo.setTipo(Integer.parseInt(tipo));
                 profesor = pdao.getOne(codigo);
                 pdao.delete(profesor);
                 url = "index.html";
                 break;
             case "update":
-                codigo.setId(Integer.parseInt(request.getParameter("registroID")));
-                codigo.setTipo(Integer.parseInt(request.getParameter("registroTIPO")));
+                String codigoObtenidoActual = request.getParameter("registroCodico");
+                String[] partsActual = codigoObtenidoActual.split("-");
+                String idActual = partsActual[0];
+                String tipoActual = partsActual[1];
+                codigo.setId(Integer.parseInt(idActual));
+                codigo.setTipo(Integer.parseInt(tipoActual));
                 profesor = pdao.getOne(codigo);
                 request.setAttribute("profesor", profesor);
                 url = "JSP/formularioActualizar.jsp";

@@ -7,13 +7,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Actualizar</title>
+        <title>Insertar</title>
         <link rel="stylesheet" type="text/css" href="${contexto}/CSS/estilo.css" />
     </head>
     <body>
 
         <div id="principal">
-            <h2>Actualizaci&oacute;n de datos</h2>
+            <h2>Insercci&oacute;n de datos</h2>
             <form method="post" action="control?op=add">
                 <table>
                     <tr>
